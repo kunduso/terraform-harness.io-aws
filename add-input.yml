@@ -1,0 +1,14 @@
+inputSet:
+  name: branch-trigger
+  identifier: branchtrigger
+  orgIdentifier: default
+  projectIdentifier: app01
+  pipeline:
+    identifier: terraformharnessaws
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
