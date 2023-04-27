@@ -9,7 +9,7 @@ pipeline:
         codebase:
             connectorRef: kunduso-github
             repoName: terraform-harness.io-aws
-            #build: 
+            build: <+input>
   stages:
     - stage:
         name: Build
