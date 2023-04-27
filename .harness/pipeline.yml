@@ -4,6 +4,12 @@ pipeline:
   projectIdentifier: app01
   orgIdentifier: default
   tags: {}
+  properties:
+    ci:
+        codebase:
+            connectorRef: kunduso-github
+            repoName: terraform-harness.io-aws
+            #build: 
   stages:
     - stage:
         name: Build
