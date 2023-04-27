@@ -25,7 +25,7 @@ pipeline:
                   identifier: Echo_Welcome_Message
                   spec:
                     shell: Sh
-                    command: echo "Welcome to Harness CI"
+                    command: pwd
           platform:
             os: Linux
             arch: Amd64
