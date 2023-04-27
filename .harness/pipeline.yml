@@ -6,30 +6,28 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: Terraform init
-        identifier: Terraform_init
-        description: ""
+        name: run script
+        identifier: run_script
+        description: run-script
         type: Custom
         spec:
           execution:
             steps:
               - step:
                   type: ShellScript
-                  name: script_run
-                  identifier: script_run
+                  name: ShellScript_1
+                  identifier: ShellScript_1
                   spec:
                     shell: Bash
-                    onDelegate: false
+                    onDelegate: true
                     source:
                       type: Inline
                       spec:
-                        script: pwd
+                        script: |-
+                          pwd
+                          ls
+                          echo "checking execution"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
+        tags: {}
