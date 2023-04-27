@@ -4,49 +4,34 @@ pipeline:
   projectIdentifier: app01
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: kunduso
-        build: <+input>
   stages:
     - stage:
         name: Terraform init
         identifier: Terraform_init
         description: ""
-        type: CI
+        type: Custom
         spec:
-          cloneCodebase: true
           execution:
             steps:
               - step:
-                  type: GitClone
-                  name: GitClone
-                  identifier: GitClone
+                  type: ShellScript
+                  name: script_run
+                  identifier: script_run
                   spec:
-                    connectorRef: kunduso
-                    build:
-                      type: branch
+                    shell: Bash
+                    source:
+                      type: Inline
                       spec:
-                        branch: main
-              - step:
-                  type: Run
-                  name: Terraform init
-                  identifier: Terraform_init
-                  spec:
-                    connectorRef: account.harnessImage
-                    image: latest
-                    shell: Sh
-                    command: terraform init
-              - step:
-                  type: Run
-                  name: Terraform Validate
-                  identifier: Terraform_Validate
-                  spec:
-                    connectorRef: account.harnessImage
-                    image: latest
-                    shell: Sh
-                    command: terraform validate
+                        script: pwd
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        failureStrategies:
+          - onFailure:
+              action:
+                type: MarkAsFailure
+              errors:
+                - AllErrors
           platform:
             os: Linux
             arch: Amd64
