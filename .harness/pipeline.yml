@@ -21,11 +21,18 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Echo Welcome Message
-                  identifier: Echo_Welcome_Message
+                  name: Message one
+                  identifier: Echo_Welcome_Message_one
                   spec:
                     shell: Sh
                     command: terraform -version
+              - step:
+                  type: Run
+                  name: MEssage two
+                  identifier: Echo_Welcome_Message_two
+                  spec:
+                    shell: Sh
+                    command: ls
           platform:
             os: Linux
             arch: Amd64
