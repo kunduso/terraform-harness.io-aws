@@ -19,7 +19,7 @@ pipeline:
                   identifier: script_run
                   spec:
                     shell: Bash
-                    onDelegate: true
+                    onDelegate: false
                     source:
                       type: Inline
                       spec:
