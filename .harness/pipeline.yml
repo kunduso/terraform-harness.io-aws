@@ -42,3 +42,9 @@ pipeline:
           runtime:
             type: Cloud
             spec: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: MarkAsFailure
