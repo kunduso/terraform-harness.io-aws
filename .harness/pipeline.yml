@@ -25,7 +25,7 @@ pipeline:
                   identifier: Echo_Welcome_Message
                   spec:
                     shell: Sh
-                    command: pwd
+                    command: ls
           platform:
             os: Linux
             arch: Amd64
