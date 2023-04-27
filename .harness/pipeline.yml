@@ -28,7 +28,7 @@ pipeline:
                     command: terraform -version
               - step:
                   type: Run
-                  name: Setup Terragrunt v0.38.4
+                  name: Setup Terragrunt
                   identifier: terragrunt_install
                   spec:
                     shell: Sh
