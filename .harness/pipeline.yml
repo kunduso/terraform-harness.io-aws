@@ -15,6 +15,12 @@ pipeline:
         name: Build
         identifier: Build
         type: CI
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: MarkAsFailure
         spec:
           cloneCodebase: true
           execution:
@@ -42,9 +48,3 @@ pipeline:
           runtime:
             type: Cloud
             spec: {}
-        failureStrategies:
-          - onFailure:
-              errors:
-                - AllErrors
-              action:
-                type: MarkAsFailure
