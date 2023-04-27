@@ -19,6 +19,7 @@ pipeline:
                   identifier: script_run
                   spec:
                     shell: Bash
+                    onDelegate: true
                     source:
                       type: Inline
                       spec:
@@ -26,12 +27,6 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
-        failureStrategies:
-          - onFailure:
-              action:
-                type: MarkAsFailure
-              errors:
-                - AllErrors
           platform:
             os: Linux
             arch: Amd64
