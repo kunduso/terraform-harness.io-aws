@@ -6,28 +6,23 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: run script
-        identifier: run_script
-        description: run-script
-        type: Custom
+        name: Build
+        identifier: Build
+        type: CI
         spec:
+          cloneCodebase: true
           execution:
             steps:
               - step:
-                  type: ShellScript
-                  name: ShellScript_1
-                  identifier: ShellScript_1
+                  type: Run
+                  name: Echo Welcome Message
+                  identifier: Echo_Welcome_Message
                   spec:
-                    shell: Bash
-                    onDelegate: true
-                    source:
-                      type: Inline
-                      spec:
-                        script: |-
-                          pwd
-                          ls
-                          echo "checking execution"
-                    environmentVariables: []
-                    outputVariables: []
-                  timeout: 10m
-        tags: {}
+                    shell: Sh
+                    command: echo "Welcome to Harness CI"
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
