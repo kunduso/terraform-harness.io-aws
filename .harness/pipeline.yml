@@ -42,6 +42,13 @@ pipeline:
                       sudo wget -q -O /bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v0.38.4/terragrunt_linux_amd64"
                       sudo chmod +x /bin/terragrunt
                       terragrunt -v
+              - step:
+                  type: Run
+                  name: Check git branch
+                  identifier: check_git_branch
+                  spec:
+                    shell: Sh
+                    command:git branch
           platform:
             os: Linux
             arch: Amd64
