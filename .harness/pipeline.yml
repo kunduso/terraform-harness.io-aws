@@ -48,7 +48,7 @@ pipeline:
                   identifier: check_git_branch
                   spec:
                     shell: Sh
-                    command:git branch
+                    command: git branch
           platform:
             os: Linux
             arch: Amd64
