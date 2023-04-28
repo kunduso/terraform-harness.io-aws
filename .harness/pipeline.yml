@@ -49,6 +49,13 @@ pipeline:
                   spec:
                     shell: Sh
                     command: git branch
+              - step:
+                  type: Run
+                  name: Check files in root
+                  identifier: check_files
+                  spec:
+                    shell: Sh
+                    command: ls
           platform:
             os: Linux
             arch: Amd64
