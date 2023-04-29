@@ -55,7 +55,7 @@ pipeline:
                   identifier: check_files
                   spec:
                     shell: Sh
-                    command: echo ${secrets.getValue("test-secret")}
+                    command: echo "${secrets.getValue("test-secret")}"
           platform:
             os: Linux
             arch: Amd64
