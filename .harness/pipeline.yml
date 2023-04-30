@@ -36,6 +36,7 @@ pipeline:
                       echo <+variable.region>
                       echo <+secrets.getValue("testsecret")> >test1.log
                       ls
+                      cat test1.log
               # - step:
               #     type: Run
               #     name: Setup Terragrunt
