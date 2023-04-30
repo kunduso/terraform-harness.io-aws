@@ -27,8 +27,8 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Message one
-                  identifier: Echo_Welcome_Message_one
+                  name: Set AWS Credentials
+                  identifier: aws_credentials
                   spec:
                     shell: Sh
                     command: |-
@@ -43,23 +43,25 @@ pipeline:
                       # export AWS_ACCESS_KEY_ID=<+secrets.getValue("AWSSecretKey")>
                       # export AWS_SECRET_ACCESS_KEY=<+secrets.getValue("AWSAccessKey")>
                       # export AWS_DEFAULT_REGION=<+secrets.getValue("AWSRegion")>
-              # - step:
-              #     type: Run
-              #     name: Setup Terragrunt
-              #     identifier: terragrunt_install
-              #     spec:
-              #       shell: Sh
-              #       command: |-
-              #         sudo wget -q -O /bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v0.38.4/terragrunt_linux_amd64"
-              #         sudo chmod +x /bin/terragrunt
-              #         terragrunt -v
-              # - step:
-              #     type: Run
-              #     name: Check git branch
-              #     identifier: check_git_branch
-              #     spec:
-              #       shell: Sh
-              #       command: git branch
+              - step:
+                  type: Run
+                  name: Install Terragrunt
+                  identifier: terragrunt_install
+                  spec:
+                    shell: Sh
+                    command: |-
+                      sudo wget -q -O /bin/terragrunt "https://github.com/gruntwork-io/terragrunt/releases/download/v0.38.4/terragrunt_linux_amd64"
+                      sudo chmod +x /bin/terragrunt
+                      terragrunt -v
+              - step:
+                  type: Run
+                  name: Terragrunt Init
+                  identifier: terragrunt_init
+                  spec:
+                    shell: Sh
+                    command: |-
+                      pwd
+                      #terragrunt init --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::${{ secrets.ACCOUNTNUMBER }}:role/terragrunt-role"
               - step:
                   type: Run
                   name: Check files in root
