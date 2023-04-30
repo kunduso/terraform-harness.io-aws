@@ -25,22 +25,22 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
-              - step:
-                  type: Run
-                  name: Set AWS Credentials
-                  identifier: aws_credentials
-                  spec:
-                    shell: Sh
-                    command: |-
-                      pwd
-                      # echo "hello" >>test1.log
-                      # echo <+variable.region> >>test1.log
-                      # echo <+secrets.getValue("testsecret")> >>test1.log
-                      # ls
-                      cd infrastructure
-                      ls
-                      # aws --version >>test1.log
-                      # cat test1.log
+              # - step:
+              #     type: Run
+              #     name: Set AWS Credentials
+              #     identifier: aws_credentials
+              #     spec:
+              #       shell: Sh
+              #       command: |-
+              #         pwd
+              #         # echo "hello" >>test1.log
+              #         # echo <+variable.region> >>test1.log
+              #         # echo <+secrets.getValue("testsecret")> >>test1.log
+              #         # ls
+              #         cd infrastructure
+              #         ls
+              #         # aws --version >>test1.log
+              #         # cat test1.log
               - step:
                   type: Run
                   name: Install Terragrunt
