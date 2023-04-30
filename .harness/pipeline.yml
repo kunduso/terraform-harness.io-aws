@@ -34,7 +34,7 @@ pipeline:
                     command: |-
                       echo "hello"
                       echo <+variable.region>
-                      echo <+secrets.getValue("test-secret")>
+                      echo <+secrets.getValue("testsecret")>
               # - step:
               #     type: Run
               #     name: Setup Terragrunt
