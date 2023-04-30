@@ -34,10 +34,10 @@ pipeline:
                     command: |-
                       echo "hello" >test1.log
                       echo <+variable.region> >test1.log
-                      echo <+secrets.getValue("testsecret")> >test1.log
+                      #echo <+secrets.getValue("testsecret")> >test1.log
                       ls
                       cat test1.log
-                      aws -version
+                      aws --version
               # - step:
               #     type: Run
               #     name: Setup Terragrunt
