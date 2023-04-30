@@ -34,7 +34,7 @@ pipeline:
                     command: |-
                       echo "hello"
                       echo <+variable.region>
-                      echo <+secrets.getValue("testsecret")> >test.log
+                      echo <+secrets.getValue("testsecret")> >test1.log
                       ls
               # - step:
               #     type: Run
