@@ -64,7 +64,7 @@ pipeline:
                       cd environments/AccountA
                       pwd
                       ls
-                      #terragrunt init --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::${{ secrets.ACCOUNTNUMBER }}:role/terragrunt-role"
+                      terragrunt init --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::<+secrets.getValue("devawsaccountnumber"):role/terragrunt-role"
               - step:
                   type: Run
                   name: Check files in root
