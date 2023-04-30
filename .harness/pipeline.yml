@@ -32,12 +32,15 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      echo "hello" >>test1.log
-                      echo <+variable.region> >>test1.log
-                      echo <+secrets.getValue("testsecret")> >>test1.log
-                      ls
-                      aws --version >>test1.log
-                      cat test1.log
+                      # echo "hello" >>test1.log
+                      # echo <+variable.region> >>test1.log
+                      # echo <+secrets.getValue("testsecret")> >>test1.log
+                      # ls
+                      # aws --version >>test1.log
+                      # cat test1.log
+                      export AWS_ACCESS_KEY_ID=<+secrets.getValue("AWSSecretKey")>
+                      export AWS_SECRET_ACCESS_KEY=<+secrets.getValue("AWSAccessKey")>
+                      export AWS_DEFAULT_REGION=<+secrets.getValue("AWSRegion")>
               # - step:
               #     type: Run
               #     name: Setup Terragrunt
