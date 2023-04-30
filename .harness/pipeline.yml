@@ -32,6 +32,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
+                      pwd
                       # echo "hello" >>test1.log
                       # echo <+variable.region> >>test1.log
                       # echo <+secrets.getValue("testsecret")> >>test1.log
@@ -61,6 +62,7 @@ pipeline:
                     shell: Sh
                     command: |-
                       pwd
+                      ls
                       #terragrunt init --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::${{ secrets.ACCOUNTNUMBER }}:role/terragrunt-role"
               - step:
                   type: Run
@@ -68,7 +70,10 @@ pipeline:
                   identifier: check_files
                   spec:
                     shell: Sh
-                    command: echo <+trigger.branch>
+                    command: |-
+                      pwd
+                      ls
+                      echo <+trigger.branch>
           platform:
             os: Linux
             arch: Amd64
