@@ -36,7 +36,7 @@ pipeline:
                       # echo <+variable.region> >>test1.log
                       # echo <+secrets.getValue("testsecret")> >>test1.log
                       # ls
-                      cd /infrastructure
+                      cd infrastructure
                       ls
                       # aws --version >>test1.log
                       # cat test1.log
