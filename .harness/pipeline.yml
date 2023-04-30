@@ -25,13 +25,15 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
-              # - step:
-              #     type: Run
-              #     name: Message one
-              #     identifier: Echo_Welcome_Message_one
-              #     spec:
-              #       shell: Sh
-              #       command: terraform -version
+              - step:
+                  type: Run
+                  name: Message one
+                  identifier: Echo_Welcome_Message_one
+                  spec:
+                    shell: Sh
+                    command: |-
+                      echo "hello"
+                      echo <+variable.region>
               # - step:
               #     type: Run
               #     name: Setup Terragrunt
