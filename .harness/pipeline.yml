@@ -61,6 +61,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
+                      cd environments/AccountA
                       pwd
                       ls
                       #terragrunt init --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::${{ secrets.ACCOUNTNUMBER }}:role/terragrunt-role"
