@@ -61,8 +61,8 @@ pipeline:
                       cd environments/AccountA
                       pwd
                       ls
-                      export AWS_ACCESS_KEY_ID=<+secrets.getValue("AWSSecretKey")>
-                      export AWS_SECRET_ACCESS_KEY=<+secrets.getValue("AWSAccessKey")>
+                      export AWS_ACCESS_KEY_ID=<+secrets.getValue("AWSAccessKey")>
+                      export AWS_SECRET_ACCESS_KEY=<+secrets.getValue("AWSSecretKey")>
                       export AWS_DEFAULT_REGION=<+secrets.getValue("AWSRegion")>
                       aws sts get-caller-identity
                       terragrunt plan --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::<+secrets.getValue("devawsaccountnumber")>:role/terragrunt-role"
