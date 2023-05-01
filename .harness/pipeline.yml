@@ -64,7 +64,7 @@ pipeline:
                       export AWS_ACCESS_KEY_ID=<+secrets.getValue("AWSSecretKey")>
                       export AWS_SECRET_ACCESS_KEY=<+secrets.getValue("AWSAccessKey")>
                       export AWS_DEFAULT_REGION=<+secrets.getValue("AWSRegion")>
-                      terragrunt init --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::<+secrets.getValue("devawsaccountnumber"):role/terragrunt-role"
+                      terragrunt plan --terragrunt-non-interactive --terragrunt-iam-role "arn:aws:iam::<+secrets.getValue("devawsaccountnumber"):role/terragrunt-role"
               - step:
                   type: Run
                   name: Check files in root
@@ -74,7 +74,10 @@ pipeline:
                     command: |-
                       pwd
                       ls
-                      echo <+trigger.branch>
+                      # echo <+trigger.branch>
+                      # export AWS_ACCESS_KEY_ID=<+secrets.getValue("AWSSecretKey")>
+                      # export AWS_SECRET_ACCESS_KEY=<+secrets.getValue("AWSAccessKey")>
+                      # export AWS_DEFAULT_REGION=<+secrets.getValue("AWSRegion")>
           platform:
             os: Linux
             arch: Amd64
